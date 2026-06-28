@@ -9,6 +9,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
+import { Article } from 'src/models/article.interface';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { CheckauthorInterceptor } from 'src/checkauthor.interceptor';
@@ -24,8 +25,8 @@ export class ArticlesController {
   }
 
   @Get()
-  findAll() {
-    return this.articlesService.findAll();
+  async findAll(): Promise<Article[]>{
+    return await this.articlesService.find();
   }
 
   @Get(':id')

@@ -16,8 +16,8 @@ export class ArticlesService {
     return article.save();
   }
 
-  async findAll(): Promise<Article[]> {
-    return this.articleModel.find().exec();
+  async find(): Promise<Article[]> {
+    return await this.articleModel.find().exec();
   }
 
   async findOne(id: string): Promise<Article> {
