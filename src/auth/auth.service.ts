@@ -43,7 +43,7 @@ import {
       const hashedPassword = await bcrypt.hash(data.password, SALT_ROUNDS);
   
       await this.authModel.create({
-        //userId: user._id,
+        userId: user._id,
         email: data.email,
         password: hashedPassword,
       });
